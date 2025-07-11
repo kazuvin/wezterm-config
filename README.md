@@ -1,108 +1,109 @@
-# WezTerm Configuration
+# WezTerm 設定
 
-Modern terminal emulator configuration for WezTerm with custom themes, keybindings, and optimized settings.
+モダンなターミナルエミュレータ WezTerm のカスタム設定です。テーマ、キーバインディング、最適化された設定を含みます。
 
-## Features
+## 機能
 
-- **Theme**: Catppuccin Mocha color scheme
-- **Font**: JetBrains Mono Medium
-- **Transparency**: Semi-transparent window with gradient background
-- **Custom keybindings**: Optimized shortcuts for productivity
-- **Tab management**: Clean tab bar with custom styling
-- **Auto-reload**: Configuration automatically reloads on changes
+- **テーマ**: Catppuccin Mocha カラースキーム
+- **フォント**: JetBrains Mono Medium
+- **透明度**: 半透明ウィンドウにグラデーション背景
+- **カスタムキーバインディング**: 生産性を向上させるショートカット
+- **タブ管理**: クリーンなタブバーとカスタムスタイリング
+- **自動リロード**: 設定変更時の自動リロード
 
-## Installation
+## インストール
 
-### Prerequisites
+### 前提条件
 
-- [WezTerm](https://wezfurlong.org/wezterm/installation.html) installed
+- [WezTerm](https://wezfurlong.org/wezterm/installation.html) がインストール済み
 - Git
 
-### Setup
+### セットアップ手順
 
-1. **Clone this repository**:
+1. **リポジトリをクローン**:
    ```bash
    git clone https://github.com/YOUR_USERNAME/wezterm-config.git
    ```
 
-2. **Backup existing configuration** (if any):
+2. **既存の設定をバックアップ**（存在する場合）:
    ```bash
    mv ~/.config/wezterm ~/.config/wezterm.backup
    ```
 
-3. **Create symlink to the cloned configuration**:
+3. **クローンした設定にシンボリックリンクを作成**:
    ```bash
    ln -s /path/to/cloned/wezterm-config ~/.config/wezterm
    ```
 
-   Or copy the files:
+   またはファイルをコピー:
    ```bash
    cp -r wezterm-config ~/.config/wezterm
    ```
 
-4. **Install required font**:
-   - Download and install [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
-   - Or use your system's package manager:
+4. **必要なフォントをインストール**:
+   - [JetBrains Mono](https://www.jetbrains.com/lp/mono/) をダウンロード・インストール
+   - またはパッケージマネージャーを使用:
      ```bash
-     # macOS with Homebrew
+     # macOS (Homebrew)
      brew install --cask font-jetbrains-mono
      
      # Ubuntu/Debian
      sudo apt install fonts-jetbrains-mono
      ```
 
-5. **Restart WezTerm** to apply the configuration
+5. **WezTerm を再起動** して設定を適用
 
-## Configuration Structure
+## 設定構造
 
 ```
 ~/.config/wezterm/
-├── wezterm.lua          # Main configuration file
+├── wezterm.lua          # メイン設定ファイル
 ├── config/
-│   └── keymaps.lua      # Custom keybindings
-└── README.md            # This file
+│   ├── appearance.lua   # 見た目・テーマ設定
+│   └── keymaps.lua      # カスタムキーバインディング
+└── README.md            # このファイル
 ```
 
-## Key Bindings
+## キーバインディング
 
-| Key Combination | Action |
-|----------------|--------|
-| `Cmd+F` | Search in terminal |
-| `Cmd+Shift+F` | Toggle fullscreen |
-| `Cmd+T` | New tab |
-| `Cmd+W` | Close tab |
-| `Cmd+Shift+R` | Reload configuration |
-| `Cmd+N` | Next search match |
-| `Cmd+P` | Previous search match |
-| `Escape` | Close search/copy mode |
+| キー組み合わせ | 動作 |
+|-------------|------|
+| `Cmd+F` | ターミナル内検索 |
+| `Cmd+Shift+F` | フルスクリーン切り替え |
+| `Cmd+T` | 新しいタブ |
+| `Cmd+W` | タブを閉じる |
+| `Cmd+Shift+R` | 設定リロード |
+| `Cmd+N` | 次の検索結果 |
+| `Cmd+P` | 前の検索結果 |
+| `Escape` | 検索/コピーモード終了 |
 
-## Customization
+## カスタマイズ
 
-### Changing the Theme
+### テーマの変更
 
-Edit `wezterm.lua` and change the `color_scheme`:
+`config/appearance.lua` でカラースキームを変更:
 ```lua
 config.color_scheme = 'Your-Preferred-Theme'
 ```
 
-### Font Configuration
+### フォント設定
 
-Modify the font settings in `wezterm.lua`:
+`config/appearance.lua` でフォント設定を変更:
 ```lua
 config.font = wezterm.font('Your-Font-Name', { weight = 'Medium' })
 config.font_size = 12.0
 ```
 
-### Window Opacity
+### ウィンドウの透明度
 
-Adjust transparency in `wezterm.lua`:
+`config/appearance.lua` で透明度を調整:
 ```lua
-config.window_background_opacity = 0.9  -- 0.0 to 1.0
+config.window_background_opacity = 0.9  -- 0.0 から 1.0
 ```
 
-## Adding New Keybindings
+## 新しいキーバインディングの追加
 
-Add new keybindings to `config/keymaps.lua`:
+`config/keymaps.lua` に新しいキーバインディングを追加:
 ```lua
 {
   key = 'YourKey',
@@ -111,35 +112,35 @@ Add new keybindings to `config/keymaps.lua`:
 },
 ```
 
-## Troubleshooting
+## トラブルシューティング
 
-### Configuration Not Loading
+### 設定が読み込まれない
 
-1. Check WezTerm's configuration file location:
+1. WezTerm の設定ファイルの場所を確認:
    ```bash
    wezterm show-config
    ```
 
-2. Verify file permissions:
+2. ファイルの権限を確認:
    ```bash
    ls -la ~/.config/wezterm/
    ```
 
-### Font Issues
+### フォントの問題
 
-1. Confirm font installation:
+1. フォントのインストールを確認:
    ```bash
    fc-list | grep -i jetbrains
    ```
 
-2. Try alternative fonts in configuration if JetBrains Mono isn't available
+2. JetBrains Mono が利用できない場合は、設定で代替フォントを使用
 
-### Performance Issues
+### パフォーマンスの問題
 
-- Reduce `window_background_opacity` value
-- Disable gradient background by commenting out `window_background_gradient`
-- Reduce `font_size` if rendering is slow
+- `window_background_opacity` の値を下げる
+- `window_background_gradient` をコメントアウトしてグラデーション背景を無効化
+- 描画が遅い場合は `font_size` を小さくする
 
-## License
+## ライセンス
 
-This configuration is free to use and modify for personal and commercial use.
+この設定は個人利用・商用利用問わず自由に使用・改変できます。
