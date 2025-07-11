@@ -20,27 +20,17 @@
 
 ### セットアップ手順
 
-1. **リポジトリをクローン**:
+1. **既存の設定をバックアップ**（存在する場合）:
    ```bash
-   git clone https://github.com/kazuvin/wezterm-config.git
+   mv ~/.config/wezterm ~/.config/wezterm.bak
    ```
 
-2. **既存の設定をバックアップ**（存在する場合）:
+2. **リポジトリをクローン**:
    ```bash
-   mv ~/.config/wezterm ~/.config/wezterm.backup
+   git clone https://github.com/kazuvin/wezterm-config.git ~/.config/wezterm
    ```
 
-3. **クローンした設定にシンボリックリンクを作成**:
-   ```bash
-   ln -s /path/to/cloned/wezterm-config ~/.config/wezterm
-   ```
-
-   またはファイルをコピー:
-   ```bash
-   cp -r wezterm-config ~/.config/wezterm
-   ```
-
-4. **必要なフォントをインストール**:
+3. **必要なフォントをインストール**:
    - [JetBrains Mono](https://www.jetbrains.com/lp/mono/) をダウンロード・インストール
    - またはパッケージマネージャーを使用:
      ```bash
@@ -51,7 +41,7 @@
      sudo apt install fonts-jetbrains-mono
      ```
 
-5. **WezTerm を再起動** して設定を適用
+4. **WezTerm を再起動** して設定を適用
 
 ## 設定構造
 
@@ -75,7 +65,7 @@
 | `Cmd+Shift+R` | 設定リロード |
 | `Cmd+N` | 次の検索結果 |
 | `Cmd+P` | 前の検索結果 |
-| `Escape` | 検索/コピーモード終了 |
+| `Ctrl+C` | 検索/コピーモード終了 |
 
 ## カスタマイズ
 
