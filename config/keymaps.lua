@@ -44,9 +44,10 @@ function M.setup()
       mods = 'CMD',
       action = wezterm.action.CopyMode 'PriorMatch',
     },
-    -- Escapeで検索終了
+    -- Ctrl+Cで検索終了（ESCキーの競合を回避）
     {
-      key = 'Escape',
+      key = 'c',
+      mods = 'CTRL',
       action = wezterm.action.CopyMode 'Close',
     },
   }
