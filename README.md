@@ -22,7 +22,7 @@
 
 1. **リポジトリをクローン**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/wezterm-config.git
+   git clone https://github.com/kazuvin/wezterm-config.git
    ```
 
 2. **既存の設定をバックアップ**（存在する場合）:
